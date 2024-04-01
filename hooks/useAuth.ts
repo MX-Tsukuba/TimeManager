@@ -1,7 +1,7 @@
 // plugins/useAuth.ts
-import supabase from '@/lib/supabase';
+import supabase from '~/plugins/supabase';
 import { ref, onMounted,} from "vue";
-import {type Session} from '@supabase/supabase-js';
+import type { Session, SupabaseClient } from "@supabase/supabase-js";
 
 
 interface ProfileFromGithub {
@@ -17,14 +17,21 @@ interface AuthState {
   signOut: () => Promise<void>;
 }
 
+
 const useAuth = (): AuthState => {
   const session = ref<Session | null>(null)
   const error = ref<string>('')
   const profileFromGithub = ref<ProfileFromGithub>({ nickName: '', avatarUrl: '' })
+  const nuxtApp = useNuxtApp();
+  const supabase = nuxtApp.$supabase as SupabaseClient;
+  console.log("--------------------")
+  console.log(nuxtApp)
+  console.log("--------------------")
 
   const signInWithGithub = async (): Promise<void> => {
     try {
       const { error: authError } = await supabase.auth.signInWithOAuth({ provider: 'github' })
+      console.log(session)
       if (authError) {
         error.value = authError.message
       }
