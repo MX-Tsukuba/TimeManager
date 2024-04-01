@@ -7,5 +7,5 @@
 <script setup>
 import useAuth from "@/hooks/useAuth";
 
-const signOut=useAuth();
+const { signOut } = useAuth();
 </script>

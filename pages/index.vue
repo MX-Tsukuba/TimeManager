@@ -8,6 +8,17 @@
 <script setup>
   import useAuth from '@/hooks/useAuth'
   
-  const {signInWithGithub,error}=useAuth();
+  const {signInWithGithub,error , session}=useAuth();
+  console.log("~~~~~~~~~~~~~~~~~~~~")
+  console.log(session)
+  console.log("~~~~~~~~~~~~~~~~~~~~")
+
+  useEffect(() => {
+    // ログイン状態の変化を監視
+    console.log(session)
+
+    // リスナーの解除
+    return () => authData.subscription.unsubscribe();
+  }, [session]);
 </script>
   

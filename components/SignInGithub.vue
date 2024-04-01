@@ -8,6 +8,6 @@
   <script setup>
   import useAuth from '@/hooks/useAuth'
   
-  const {signInWithGithub,error}=useAuth();
+  const {signInWithGithub,error,session}=useAuth();
   </script>
   
