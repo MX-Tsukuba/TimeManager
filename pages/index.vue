@@ -8,6 +8,20 @@
 <script setup>
   import useAuth from '@/hooks/useAuth'
   
+  const nuxtApp = useNuxtApp();
+
+  const email = ref("");
+  const password = ref("");
+  const username = ref("");
+
+  const submit = async () => {
+    const session = await nuxtApp.$supabase.auth.signUp({
+      email: email.value,
+      password: password.value,
+    });
+  // TODO: データベースに初期値入れる
+  };
+
   const {signInWithGithub,error , session}=useAuth();
   console.log("~~~~~~~~~~~~~~~~~~~~")
   console.log(session)
