@@ -1,15 +1,6 @@
 import { SupabaseClient, createClient } from "@supabase/supabase-js";
 import { defineNuxtPlugin } from "#app";
-
-
-export type Database = {
-    id: string;
-    createdAt: string;
-    message: string;
-    nickName: string;
-    avatarUrl: string;
-};
-
+import type { Database } from "~/types/supabase";
 
 export default defineNuxtPlugin((nuxtApp) => {
     const runtimeConfig = nuxtApp.$config;
