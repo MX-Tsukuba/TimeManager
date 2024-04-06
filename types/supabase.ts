@@ -1,7 +1,7 @@
 export type Database = {
-    id: string;
-    createdAt: string;
-    message: string;
-    nickName: string;
-    avatarUrl: string;
+  id: string;
+  created_at: string;
+  updated_at: string;
+  nickName: string;
+  avatarUrl: string;
 };

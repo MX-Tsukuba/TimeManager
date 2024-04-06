@@ -34,27 +34,27 @@ export type Database = {
   }
   public: {
     Tables: {
-      TimeManager: {
+      t_users: {
         Row: {
-          avatar: string | null
+          avatarUrl: string | null
           created_at: string
           id: string
-          message: string | null
           nickName: string | null
+          updated_at: string | null
         }
         Insert: {
-          avatar?: string | null
+          avatarUrl?: string | null
           created_at?: string
           id?: string
-          message?: string | null
           nickName?: string | null
+          updated_at?: string | null
         }
         Update: {
-          avatar?: string | null
+          avatarUrl?: string | null
           created_at?: string
           id?: string
-          message?: string | null
           nickName?: string | null
+          updated_at?: string | null
         }
         Relationships: []
       }
