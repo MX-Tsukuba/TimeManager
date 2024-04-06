@@ -24,9 +24,6 @@ const useAuth = (): AuthState => {
   const profileFromGithub = ref<ProfileFromGithub>({ nickName: '', avatarUrl: '' })
   const nuxtApp = useNuxtApp();
   const supabase = nuxtApp.$supabase as SupabaseClient;
-  console.log("--------------------")
-  console.log(nuxtApp)
-  console.log("--------------------")
 
   const signInWithGithub = async (): Promise<void> => {
     try {
@@ -42,7 +39,7 @@ const useAuth = (): AuthState => {
 
   const signOut = async (): Promise<void> => {
     await supabase.auth.signOut()
-  }
+  } 
 
   onMounted(() => {
     const { data: authData } = supabase.auth.onAuthStateChange((_, session) => {
